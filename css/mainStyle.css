@@ -1,0 +1,23 @@
+body {
+
+    /* Plantilla default para centrar el contenido en el centro */
+
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+.generalDiv {
+
+    background-color: yellow;
+    width: 20em;
+    height: 20em;
+}
