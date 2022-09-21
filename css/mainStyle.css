@@ -16,8 +16,18 @@ body {
 
 
 .generalDiv {
-
+    display: flex;
     background-color: yellow;
-    width: 20em;
-    height: 20em;
+    width: 90em;
+    height: 45em;
+    outline: auto;
+    justify-content: center;
+
+}
+
+.navbar {
+    display: grid;
+    background-color: blue;
+    width: 80em;
+    height: 10em;
 }
