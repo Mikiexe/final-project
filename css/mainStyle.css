@@ -17,17 +17,51 @@ body {
 
 .generalDiv {
     display: flex;
+    flex-direction: column;
     background-color: yellow;
-    width: 90em;
-    height: 45em;
+    width: 116em;
+    height: 57em;
     outline: auto;
-    justify-content: center;
+    /* justify-content: center; */
+}
 
+
+div {
+    align-items: center;
 }
 
 .navbar {
-    display: grid;
+    margin-top: 1em;
     background-color: blue;
-    width: 80em;
-    height: 10em;
+    width: 100%;
+    height: 5em;
+    margin-bottom: 1em;
+}
+
+
+
+.shop {
+    width: 110em;
+    height: 47em;
+    outline: auto;
+    display: flex;
+    /* align-items: center;
+    justify-content: center; */
+}
+
+
+.left {
+    margin-left: 4em;
+    width: 70em;
+    height: 35em;
+    background-color: black;
+    outline: auto;
+}
+
+.right {
+    outline: auto;
+    margin-left: 10em;
+    width: 24em;
+    height: 35em;
+    background-color: blueviolet;
 }
