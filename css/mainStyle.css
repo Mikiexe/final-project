@@ -13,14 +13,12 @@ body {
 }
 
 
-
-
 .generalDiv {
     display: flex;
     flex-direction: column;
     background-color: yellow;
-    width: 110em;
-    height: 57em;
+    width: 96em;
+    height: 47em;
     outline: auto;
     /* justify-content: center; */
 }
@@ -41,8 +39,8 @@ div {
 
 
 .shop {
-    width: 110em;
-    height: 47em;
+    width: 87em;
+    height: 38em;
     outline: auto;
     display: flex;
     /* align-items: center;
