@@ -125,9 +125,11 @@ const drop = (ev) => {
     if (precioTotal > 1024) {
 
         let precioTotalGB = precioTotal / 1024;
-        totalCarrito.innerHTML = `${precioTotalGB.toFixed(2)} GB`;
+        totalCarrito.innerHTML = `${Math.round((precioTotalGB + Number.EPSILON) * 100) / 100} GB`;
     }
 };
+
+
 
 
 const vaciarCarrito = () => {

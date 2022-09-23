@@ -125,7 +125,8 @@ div {
 .right {
     display: flex;
     outline: auto;
-    margin-left: 10em;
+    margin-left: 5em;
+    margin-right: 5em;
     width: 24em;
     height: 35em;
     background-color: blueviolet;
