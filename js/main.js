@@ -17,67 +17,67 @@ totalCarrito.innerHTML = `${precioTotal} MB`;
 let objetos = [
     {
         id: "item1",
-        pesoMb: 405,
+        pesoMb: 40.5
     },
     {
         id: "item2",
-
+        pesoMb: 54.2
     },
     {
         id: "item3",
-
+        pesoMb: 112.3
     },
     {
         id: "item4",
-
+        pesoMb: 405
     },
     {
         id: "item5",
-
+        pesoMb: 405
     },
     {
         id: "item6",
-
+        pesoMb: 405
     },
     {
         id: "item7",
-
+        pesoMb: 405
     },
     {
         id: "item8",
-
+        pesoMb: 405
     },
     {
         id: "item9",
-
+        pesoMb: 405
     },
     {
         id: "item10",
-
+        pesoMb: 405
     },
     {
         id: "item11",
-
+        pesoMb: 405
     },
     {
         id: "item12",
-
+        pesoMb: 405
     },
     {
         id: "item13",
-
+        pesoMb: 405
     },
     {
         id: "item14",
-
+        pesoMb: 405
     },
     {
         id: "item15",
-
+        pesoMb: 405
     },
     {
         id: "item16",
-
+        pesoMb: 405
     }
 ];
 
