@@ -21,7 +21,8 @@
 
                     <div class="grid-item c1">
                         <div class="subitem-1">
-                            <p> cuadro 1</p>
+                            <img src="img/instagram.png" alt="" id="item1"
+                                ondragstart="drag(event)" draggable="true">
                         </div>
                         <div class="subitem-2">
                             <p>cuadro 2</p>
@@ -185,8 +186,12 @@
             <div class="right">
                 <div class="grid-layout-right">
                     <div class="grid-item-r cesta-1">CESTA</div>
-                    <div class="grid-item-r">Box 1</div>
-                    <div class="grid-item-r">Box 2</div>
+                    <div class="grid-item-r">
+                        <img src="/img/shopping-cart-20370-32x32.ico" id="contenedor1" ondrop="drop(event)"
+                            ondragover="allowDrop(event)" alt="">
+                    </div>
+                    <div id="totalCarrito" class="pesoTotal">
+                    </div>
                 </div>
 
             </div>
@@ -194,7 +199,7 @@
 
     </div>
 
-
+    <script src="/js/main.js"></script>
 </body>
 
 </html>
