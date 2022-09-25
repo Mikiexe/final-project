@@ -5,7 +5,7 @@ let botonVaciar = document.getElementById("botonVaciar");
 botonVaciar.addEventListener("click", () => { vaciarCarrito() });
 
 
-//Recogemos el Id del elemento carrito para poder interactuar con el mediante el DOM
+//Recogemos el Id del elemento totalCarrito para poder interactuar con el mediante el DOM
 
 
 let totalCarrito = document.getElementById("totalCarrito");
@@ -13,11 +13,55 @@ let precioTotal = 0;
 totalCarrito.innerHTML = `${precioTotal} MB`;
 
 
+
+
+
+
+const addItemElement = () => {
+
+    // Recogemos el div existente Item-list-right para poder insertarle el recien creado div newElement
+    let itemListright = document.getElementById("itemListRight");
+    console.log("Recojo el valor de la clase item-list-right");
+
+    let nameTxt = document.getElementById("nameTxt");
+    let text = document.createTextNode(nameTxt.innerHTML);
+    
+    
+
+    // Creamos el elemento nuevo div y le asignamos los estilos css. 
+    // Lo indexamos dentro de la clase previamente recogida.
+    let newElement = document.createElement("div");
+    newElement.setAttribute("class", "item-list");
+    itemListright.appendChild(newElement);
+    
+
+
+
+    // let textoPrueba = document.createElement('p');
+    // textoPrueba.innerHTML = "soy un texto de prueba";
+
+
+    let innerDiv1 = document.createElement("div");
+    innerDiv1.setAttribute("class", "item-list-name");
+    newElement.appendChild(innerDiv1);
+    innerDiv1.appendChild(text);
+
+    let innerDiv2 = document.createElement("div");
+    innerDiv2.setAttribute("class", "item-list-qty");
+    newElement.appendChild(innerDiv2);
+
+}
+
+
+
+
+
 // Declaramos un array con objetos que utilizaremos en nuestra "tienda"
 let objetos = [
     {
         id: "item1",
-        pesoMb: 40.5
+        pesoMb: 40.5,
+        nombre: "Instagram"
     },
     {
         id: "item2",
@@ -100,6 +144,11 @@ const allowDrop = (ev) => {
 
 const drop = (ev) => {
 
+
+    //Función custom para añadir elementos con el método DOM
+    addItemElement();
+
+
     //Desactivamos los ajustes predefinidos de drag para que nos permita soltar
     ev.preventDefault();
 
@@ -127,13 +176,19 @@ const drop = (ev) => {
         let precioTotalGB = precioTotal / 1024;
         totalCarrito.innerHTML = `${Math.round((precioTotalGB + Number.EPSILON) * 100) / 100} GB`;
     }
+
+
+
 };
 
 
 
 
 const vaciarCarrito = () => {
+
     precioTotal = 0;
     totalCarrito.innerHTML = `${precioTotal} MB`;
+
+    document.getElementById("itemListRight").innerHTML = "";
 
 }
