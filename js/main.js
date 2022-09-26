@@ -14,45 +14,116 @@ totalCarrito.innerHTML = `${precioTotal} MB`;
 
 
 
+let arrayCarrito = [
+
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+    {
+        nombre: "Behance",
+        cantidad: 0
+    },
+    {
+        nombre: "Github",
+        cantidad: 0
+    },
+    {
+        nombre: "LoveApp",
+        cantidad: 0
+    },
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+    {
+        nombre: "Instagram",
+        cantidad: 0
+    },
+
+];
+
+//               NOTA 26/09/22 
+// He creado un Array de objetos fuera de la función porque me da problemas a la hora de crearla dentro de la función
+// Ahora toca refinar la función para que actualice la cantidad de objetos que hemos metido dentro de la cesta
+// Tendré que comprobar si la cantidad es 0 y sumarle 1. Si ya existe el objeto, restrinjo a la función addElement con un if()
 
 
 
-const addItemElement = () => {
+const carritoPush = (nameTxt) => {
+
+    // console.log(nameTxt);
+
+
+    if (arrayCarrito.some(nombre => nombre.nombre === nameTxt)) {
+        console.log("true");
+        app.cantidad++;
+    }
+    else {
+
+        arrayCarrito.push(app);
+    }
+
+
+}
+
+
+const addItemElement = (nameTxt) => {
 
     // Recogemos el div existente Item-list-right para poder insertarle el recien creado div newElement
     let itemListright = document.getElementById("itemListRight");
-    console.log("Recojo el valor de la clase item-list-right");
 
-    let nameTxt = document.getElementById("nameTxt");
-    let text = document.createTextNode(nameTxt.innerHTML);
-    
-    
+    // Creamos un elemento p para realizarle un append del contenido de nameTxt
+    let textElement = document.createElement("p");
+    textElement.append(nameTxt);
 
-    // Creamos el elemento nuevo div y le asignamos los estilos css. 
-    // Lo indexamos dentro de la clase previamente recogida.
+
+    // Creamos un elemento nuevo div padre y le asignamos los estilos css predefinidos. 
+    // Lo indexamos dentro de la clase itemListRight.
     let newElement = document.createElement("div");
     newElement.setAttribute("class", "item-list");
     itemListright.appendChild(newElement);
-    
 
 
-
-    // let textoPrueba = document.createElement('p');
-    // textoPrueba.innerHTML = "soy un texto de prueba";
-
-
+    //Crea ambos divs relativos al nombre de la app y la cantidad que hemos insertado
     let innerDiv1 = document.createElement("div");
     innerDiv1.setAttribute("class", "item-list-name");
     newElement.appendChild(innerDiv1);
-    innerDiv1.appendChild(text);
+
+    //Indexamos el nombre de la app dentro del div innerDiv1 que corresponde al nombre
+    innerDiv1.append(textElement);
+
 
     let innerDiv2 = document.createElement("div");
     innerDiv2.setAttribute("class", "item-list-qty");
     newElement.appendChild(innerDiv2);
 
+
 }
-
-
 
 
 
@@ -65,63 +136,79 @@ let objetos = [
     },
     {
         id: "item2",
-        pesoMb: 54.2
+        pesoMb: 54.2,
+        nombre: "BeHance"
     },
     {
         id: "item3",
-        pesoMb: 112.3
+        pesoMb: 112.3,
+        nombre: "GitHub"
     },
     {
         id: "item4",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "LoveApp"
+
     },
     {
         id: "item5",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "iCloud"
     },
     {
         id: "item6",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "TikTok"
     },
     {
         id: "item7",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "LinkedIn"
     },
     {
         id: "item8",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "Messenger"
     },
     {
         id: "item9",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "Twitter"
     },
     {
         id: "item10",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "Telegram"
     },
     {
         id: "item11",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "Pinterest"
     },
     {
         id: "item12",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "Skype"
     },
     {
         id: "item13",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "VikApp"
     },
     {
         id: "item14",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "VSCode"
     },
     {
         id: "item15",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "Translate App"
     },
     {
         id: "item16",
-        pesoMb: 405
+        pesoMb: 405,
+        nombre: "YouTube"
     }
 ];
 
@@ -145,23 +232,32 @@ const allowDrop = (ev) => {
 const drop = (ev) => {
 
 
-    //Función custom para añadir elementos con el método DOM
-    addItemElement();
-
-
     //Desactivamos los ajustes predefinidos de drag para que nos permita soltar
     ev.preventDefault();
 
-
-    //Asignamos a la variable data la ID del objeto donde "dropeamos"
-
     let data = ev.dataTransfer.getData("text");
-    // ev.target.appendChild(document.getElementById(data));
-
 
     let objetoDeseo = objetos.find(objeto => {
         return objeto.id == data
     });
+
+
+
+    //Función custom para añadir elementos con el método DOM
+    addItemElement(objetoDeseo.nombre);
+
+
+    carritoPush(objetoDeseo.nombre);
+    console.log(arrayCarrito);
+
+    //Asignamos a la variable data la ID del objeto donde "dropeamos"
+
+    // ev.target.appendChild(document.getElementById(data));
+
+
+
+
+
 
     console.log("soltando...", objetoDeseo.pesoMb);
 
