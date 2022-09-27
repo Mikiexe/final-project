@@ -4,7 +4,6 @@
 let botonVaciar = document.getElementById("botonVaciar");
 botonVaciar.addEventListener("click", () => { vaciarCarrito() });
 
-
 //Recogemos el Id del elemento totalCarrito para poder interactuar con el mediante el DOM
 
 
@@ -18,51 +17,63 @@ let arrayCarrito = [
 
     {
         nombre: "Instagram",
-        cantidad: 0
+        cantidad: 0,
+        posicion: 0
     },
     {
         nombre: "Behance",
-        cantidad: 0
+        cantidad: 0,
+        posicion: 1
     },
     {
         nombre: "Github",
-        cantidad: 0
+        cantidad: 0,
+        posicion: 2
     },
     {
         nombre: "LoveApp",
-        cantidad: 0
+        cantidad: 0,
+        posicion: 3
     },
     {
-        nombre: "Instagram",
-        cantidad: 0
+        nombre: "iCloud",
+        cantidad: 0,
+        posicion: 4
     },
     {
-        nombre: "Instagram",
-        cantidad: 0
+        nombre: "TikTok",
+        cantidad: 0,
+        posicion: 5
     },
     {
-        nombre: "Instagram",
-        cantidad: 0
+        nombre: "LinkedIn",
+        cantidad: 0,
+        posicion: 6
     },
     {
-        nombre: "Instagram",
-        cantidad: 0
+        nombre: "Messenger",
+        cantidad: 0,
+        posicion: 7
     },
     {
-        nombre: "Instagram",
-        cantidad: 0
+        nombre: "Twitter",
+        cantidad: 0,
+        posicion: 8
     },
     {
-        nombre: "Instagram",
-        cantidad: 0
+        nombre: "Telegram",
+        cantidad: 0,
+        posicion: 9
     },
     {
-        nombre: "Instagram",
-        cantidad: 0
+        nombre: "Pinterest",
+        cantidad: 0,
+        posicion: 10
     },
     {
-        nombre: "Instagram",
-        cantidad: 0
+        nombre: "Skype",
+        cantidad: 0,
+        posicion: 11
     },
 
 ];
@@ -74,19 +85,42 @@ let arrayCarrito = [
 
 
 
+
+const getPosition = (elementToFind, arrayElements) => {
+
+    let i;
+    for (i = 0; i < arrayElements.length; i += 1) {
+
+        if (arrayElements[i] === elementToFind) {
+            return i;
+        }
+
+    }
+    console.log(i);
+    return null; //not found
+}
+
+
 const carritoPush = (nameTxt) => {
 
-    // console.log(nameTxt);
+    let posicion = 0;
+
+    switch (nameTxt) {
+        case "Instagram":
+            posicion = 0;
+            break;
+        case "BeHance":
+            posicion = 1;
+            break;
+    }
 
 
     if (arrayCarrito.some(nombre => nombre.nombre === nameTxt)) {
-        console.log("true");
-        app.cantidad++;
-    }
-    else {
 
-        arrayCarrito.push(app);
+        arrayCarrito[posicion].cantidad++;
+        console.log(arrayCarrito[0].cantidad);
     }
+    // console.log(arrayCarrito[0].cantidad);
 
 
 }
@@ -248,7 +282,7 @@ const drop = (ev) => {
 
 
     carritoPush(objetoDeseo.nombre);
-    console.log(arrayCarrito);
+    // console.log(arrayCarrito);
 
     //Asignamos a la variable data la ID del objeto donde "dropeamos"
 
