@@ -7,158 +7,92 @@ botonVaciar.addEventListener("click", () => { vaciarCarrito() });
 //Recogemos el Id del elemento totalCarrito para poder interactuar con el mediante el DOM
 
 
+//              NOTA 27/09/22
+// He creado una función para refrescar los valores llamada refreshQty() que pasa dos parametros para saber que incrementar
+// He reducido 2 arrays a uno general, el original. El otro no era necesario, la funcionalidad se mantiene con uno
+// Las variables totalCantidadP son para identificar las etiquetas <p> con el id-cantidad y poder refrescar los datos (aun sin incorporar)
+// 
+
+
 let totalCarrito = document.getElementById("totalCarrito");
 let precioTotal = 0;
 totalCarrito.innerHTML = `${precioTotal} MB`;
 
+let cantidadTotal = 0;
+let totalCantidadP = document.getElementById("id-cantidad");
 
 
-let arrayCarrito = [
-
-    {
-        nombre: "Instagram",
-        cantidad: 0,
-        posicion: 0
-    },
-    {
-        nombre: "Behance",
-        cantidad: 0,
-        posicion: 1
-    },
-    {
-        nombre: "Github",
-        cantidad: 0,
-        posicion: 2
-    },
-    {
-        nombre: "LoveApp",
-        cantidad: 0,
-        posicion: 3
-    },
-    {
-        nombre: "iCloud",
-        cantidad: 0,
-        posicion: 4
-    },
-    {
-        nombre: "TikTok",
-        cantidad: 0,
-        posicion: 5
-    },
-    {
-        nombre: "LinkedIn",
-        cantidad: 0,
-        posicion: 6
-    },
-    {
-        nombre: "Messenger",
-        cantidad: 0,
-        posicion: 7
-    },
-    {
-        nombre: "Twitter",
-        cantidad: 0,
-        posicion: 8
-    },
-    {
-        nombre: "Telegram",
-        cantidad: 0,
-        posicion: 9
-    },
-    {
-        nombre: "Pinterest",
-        cantidad: 0,
-        posicion: 10
-    },
-    {
-        nombre: "Skype",
-        cantidad: 0,
-        posicion: 11
-    },
-
-];
 
 //               NOTA 26/09/22 
 // He creado un Array de objetos fuera de la función porque me da problemas a la hora de crearla dentro de la función
 // Ahora toca refinar la función para que actualice la cantidad de objetos que hemos metido dentro de la cesta
 // Tendré que comprobar si la cantidad es 0 y sumarle 1. Si ya existe el objeto, restrinjo a la función addElement con un if()
+// 
 
 
-
-
-const getPosition = (elementToFind, arrayElements) => {
-
-    let i;
-    for (i = 0; i < arrayElements.length; i += 1) {
-
-        if (arrayElements[i] === elementToFind) {
-            return i;
-        }
-
-    }
-    console.log(i);
-    return null; //not found
-}
-
-
-const carritoPush = (nameTxt) => {
-
-    let posicion = 0;
-
-    switch (nameTxt) {
-        case "Instagram":
-            posicion = 0;
-            break;
-        case "BeHance":
-            posicion = 1;
-            break;
-    }
-
-
-    if (arrayCarrito.some(nombre => nombre.nombre === nameTxt)) {
-
-        arrayCarrito[posicion].cantidad++;
-        console.log(arrayCarrito[0].cantidad);
-    }
-    // console.log(arrayCarrito[0].cantidad);
-
-
-}
-
-
-const addItemElement = (nameTxt) => {
+const addItemElement = (nameTxt, posicion) => {
 
     // Recogemos el div existente Item-list-right para poder insertarle el recien creado div newElement
     let itemListright = document.getElementById("itemListRight");
-
-    // Creamos un elemento p para realizarle un append del contenido de nameTxt
-    let textElement = document.createElement("p");
-    textElement.append(nameTxt);
-
-
-    // Creamos un elemento nuevo div padre y le asignamos los estilos css predefinidos. 
-    // Lo indexamos dentro de la clase itemListRight.
-    let newElement = document.createElement("div");
-    newElement.setAttribute("class", "item-list");
-    itemListright.appendChild(newElement);
-
-
-    //Crea ambos divs relativos al nombre de la app y la cantidad que hemos insertado
-    let innerDiv1 = document.createElement("div");
-    innerDiv1.setAttribute("class", "item-list-name");
-    newElement.appendChild(innerDiv1);
-
-    //Indexamos el nombre de la app dentro del div innerDiv1 que corresponde al nombre
-    innerDiv1.append(textElement);
-
-
+    let textQty = document.createElement("p");
     let innerDiv2 = document.createElement("div");
-    innerDiv2.setAttribute("class", "item-list-qty");
-    newElement.appendChild(innerDiv2);
+
+    if (objetos[posicion].cantidad == 0) {
+
+        objetos[posicion].cantidad++;
+        // console.log("La cantidad de aplicacion es: " + objetos[posicion].cantidad);
+
+        // Creamos un elemento nuevo div padre y le asignamos los estilos css predefinidos. 
+        // Lo indexamos dentro de la clase itemListRight.
+        let newElement = document.createElement("div");
+        newElement.setAttribute("class", "item-list");
+        itemListright.appendChild(newElement);
 
 
+        //Crea ambos divs relativos al nombre de la app y la cantidad que hemos insertado
+        let innerDiv1 = document.createElement("div");
+        innerDiv1.setAttribute("class", "item-list-name");
+        newElement.appendChild(innerDiv1);
+
+
+        // Creamos un elemento p para realizarle un append del contenido de nameTxt
+        //Indexamos el nombre de la app dentro del div innerDiv1 que corresponde al nombre
+        let textElement = document.createElement("p");
+        textElement.append(nameTxt);
+        innerDiv1.appendChild(textElement);
+
+
+        innerDiv2.setAttribute("class", "item-list-qty");
+        newElement.appendChild(innerDiv2);
+
+
+        textQty.setAttribute("id", "id-cantidad");
+        textQty.append(objetos[posicion].cantidad);
+        innerDiv2.appendChild(textQty);
+
+    }
+    else if (objetos[posicion].cantidad !== 0) {
+
+        // let nuevaCantidad = objetos[posicion].cantidad++;
+        // console.log("sumamos valor a cantidad. Ahora vale:  " + objetos[posicion].cantidad)
+
+        // innerDiv2.innerHTML = "";
+        // textQty.innerHTML = "";
+        // console.log(innerDiv2.innerHTML);
+    }
 }
 
+
+const refreshQty = (posicionArray, cantidad) => {
+
+    console.log(posicionArray)
+    console.log("Cantidad prefuncion: " + cantidad);
+
+
+    let nuevoCantidad = objetos[posicionArray].cantidad++;
+    console.log("cantidad postfunction: " + nuevoCantidad);
+
+}
 
 
 // Declaramos un array con objetos que utilizaremos en nuestra "tienda"
@@ -166,83 +100,116 @@ let objetos = [
     {
         id: "item1",
         pesoMb: 40.5,
-        nombre: "Instagram"
+        nombre: "Instagram",
+        position: 0,
+        added: false,
+        cantidad: 0
     },
     {
         id: "item2",
         pesoMb: 54.2,
-        nombre: "BeHance"
+        nombre: "BeHance",
+        position: 1,
+        cantidad: 0
     },
     {
         id: "item3",
         pesoMb: 112.3,
-        nombre: "GitHub"
+        nombre: "GitHub",
+        position: 2,
+        cantidad: 0
     },
     {
         id: "item4",
         pesoMb: 405,
-        nombre: "LoveApp"
+        nombre: "LoveApp",
+        position: 3,
+        cantidad: 0
 
     },
     {
         id: "item5",
         pesoMb: 405,
-        nombre: "iCloud"
+        nombre: "iCloud",
+        position: 4,
+        cantidad: 0
     },
     {
         id: "item6",
         pesoMb: 405,
-        nombre: "TikTok"
+        nombre: "TikTok",
+        position: 5,
+        cantidad: 0
     },
     {
         id: "item7",
         pesoMb: 405,
-        nombre: "LinkedIn"
+        nombre: "LinkedIn",
+        position: 6,
+        cantidad: 0
     },
     {
         id: "item8",
         pesoMb: 405,
-        nombre: "Messenger"
+        nombre: "Messenger",
+        position: 7,
+        cantidad: 0
     },
     {
         id: "item9",
         pesoMb: 405,
-        nombre: "Twitter"
+        nombre: "Twitter",
+        position: 8,
+        cantidad: 0
     },
     {
         id: "item10",
         pesoMb: 405,
-        nombre: "Telegram"
+        nombre: "Telegram",
+        position: 9,
+        cantidad: 0
     },
     {
         id: "item11",
         pesoMb: 405,
-        nombre: "Pinterest"
+        nombre: "Pinterest",
+        position: 10,
+        cantidad: 0
     },
     {
         id: "item12",
         pesoMb: 405,
-        nombre: "Skype"
+        nombre: "Skype",
+        position: 11,
+        cantidad: 0
     },
     {
         id: "item13",
         pesoMb: 405,
-        nombre: "VikApp"
+        nombre: "VikApp",
+        position: 12,
+        cantidad: 0
     },
     {
         id: "item14",
         pesoMb: 405,
-        nombre: "VSCode"
+        nombre: "VSCode",
+        position: 13,
+        cantidad: 0
     },
     {
         id: "item15",
         pesoMb: 405,
-        nombre: "Translate App"
+        nombre: "Translate App",
+        position: 14,
+        cantidad: 0
     },
     {
         id: "item16",
         pesoMb: 405,
-        nombre: "YouTube"
+        nombre: "YouTube",
+        position: 15,
+        cantidad: 0
     }
 ];
 
@@ -254,7 +221,7 @@ const drag = (ev) => {
     //Convierte a texto la ID del objeto que estemos arrastrando
     ev.dataTransfer.setData("text", ev.target.id);
 
-    console.log("arrastrando...", ev.target.id);
+    // console.log("arrastrando...", ev.target.id);
 };
 
 const allowDrop = (ev) => {
@@ -278,40 +245,33 @@ const drop = (ev) => {
 
 
     //Función custom para añadir elementos con el método DOM
-    addItemElement(objetoDeseo.nombre);
+    addItemElement(objetoDeseo.nombre, objetoDeseo.position);
 
 
-    carritoPush(objetoDeseo.nombre);
-    // console.log(arrayCarrito);
+    // carritoPush(objetoDeseo.nombre, objetoDeseo.position);
 
-    //Asignamos a la variable data la ID del objeto donde "dropeamos"
-
-    // ev.target.appendChild(document.getElementById(data));
-
-
-
-
-
-
-    console.log("soltando...", objetoDeseo.pesoMb);
+    // console.log("soltando...", objetoDeseo.pesoMb);
 
 
     //Importante cambiar objetoDeseo.variable por el nombre que le asignamos dentro del objeto
     precioTotal += objetoDeseo.pesoMb;
-
     totalCarrito.innerHTML = `${precioTotal} MB`;
+
+    // cantidadTotal += objetos[objetos.position].cantidad;
+    // totalCantidadP.innerHTML = `${cantidadTotal}`; 
+
+    // console.log(document.getElementById("id-cantidad"));
+
+
+    refreshQty(objetoDeseo.position, objetoDeseo.cantidad);
+
 
     if (precioTotal > 1024) {
 
         let precioTotalGB = precioTotal / 1024;
         totalCarrito.innerHTML = `${Math.round((precioTotalGB + Number.EPSILON) * 100) / 100} GB`;
     }
-
-
-
 };
-
-
 
 
 const vaciarCarrito = () => {
