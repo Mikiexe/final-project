@@ -5,22 +5,30 @@ body {
     display: flex;
     width: 100vw;
     height: 100vh;
-    background-color: antiquewhite;
+
     justify-content: center;
     align-items: center;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    background-color: antiquewhite;
 }
+
+
 
 
 .generalDiv {
     display: flex;
     flex-direction: column;
-    background-color: yellow;
+
     width: 96em;
-    height: 47em;
-    outline: auto;
+    height: 50em;
+
+    /* outline: auto; */
+    background-color: whitesmoke;
     /* justify-content: center; */
+    background-image: url(/img/generalDivPizarraPNG.png );
+    background-position: center;
+    background-size: 96em 50em;
 }
 
 
@@ -28,23 +36,14 @@ div {
     align-items: center;
 }
 
-.navbar {
-    margin-top: 1em;
-    background-color: blue;
-    width: 100%;
-    height: 5em;
-    margin-bottom: 1em;
-}
-
-
 
 .shop {
     width: 87em;
     height: 38em;
-    outline: auto;
+
+    margin: auto;
+    /* outline: auto; */
     display: flex;
-    /* align-items: center;
-    justify-content: center; */
 }
 
 
@@ -53,12 +52,14 @@ div {
 .left {
     display: flex;
     margin-left: 4em;
-    width: 80em;
-    height: 35em;
-    background-color: grey;
-    outline: auto;
+    margin-top: .6em;
     align-items: center;
     justify-content: center;
+    
+    width: 88em;
+    height: 37em;
+    /* background-color: grey; */
+    /* outline: auto; */
 
 }
 
@@ -73,7 +74,7 @@ div {
     width: 100%;
     height: 100%;
     margin: 0 auto;
-    background-color: lightgreen;
+    /* background-color: lightgreen; */
 }
 
 .grid-item {
@@ -85,10 +86,13 @@ div {
     margin: .5em;
 
 
-    width: 10em;
+    width: 11em;
     height: 14em;
     border: .2em solid black;
     background-color: beige;
+
+    border-radius: 20%;
+    box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
 }
 
 .subitem-1 {
@@ -103,20 +107,27 @@ div {
     border-radius: 100%;
     text-align: center;
     align-items: center;
+
 }
+
+
 
 .subitem-1 img {
     margin: 0 auto;
     width: 8em;
     height: 8em;
+    transform: scale(0.8);
 }
 
 .subitem-2 {
+
+    border-bottom-left-radius: 20% 10%;
+    border-radius: 0 0 10% 10%;
     text-align: center;
     margin: auto;
     width: 90%;
     height: 20%;
-    background-color: cadetblue;
+    /* background-color: cadetblue; */
 }
 
 
@@ -137,9 +148,9 @@ div {
 
 
     background-color: white;
-    background-image: url(/img/wrinkledReceiptBG.jpg);
+    background-image: url(/img/receiptShop.png);
     background-position: center;
-    background-size: 24em;
+    background-size: 17em 35em;
 
 
 }
@@ -304,4 +315,38 @@ div {
 ::-webkit-scrollbar {
     width: 1em;
     height: 0em;
+}
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1540px) {
+    .generalDiv {
+        width: 88em;
+        transform: scale(0.7);
+        background-size: 88em 50em;
+        transition: all 500ms ease-in;
+    }
+}
+
+@media screen and (min-width: 1540px) {
+    .generalDiv {
+        width: 96em;
+        transform: scale(1);
+        background-size: 96em 50em;
+        transition: all 500ms ease-in;
+    }
+}
+
+@media screen and (max-width: 420) {
+    .generalDiv {
+        width: 88em;
+        transform: scale(0.7);
+        background-size: 88em 50em;
+        transition: all 500ms ease-in;
+    }
 }

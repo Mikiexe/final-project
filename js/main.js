@@ -244,21 +244,23 @@ const drop = (ev) => {
 
     //Importante cambiar objetoDeseo.variable por el nombre que le asignamos dentro del objeto
 
-    precioTotal += objetoDeseo.pesoMb;
-    totalCarrito.innerHTML = `${precioTotal} MB`;
-
-
+    
+    
     if (document.getElementById("id-cantidad-" + objetoDeseo.nombre).innerHTML != 0) {
         objetos[objetoDeseo.position].cantidad++;
         console.log(objetos[objetoDeseo.cantidad]);
     }
     else {
         objetos[objetoDeseo.position].cantidad++;
-
+        
     }
     console.log(document.getElementById("id-cantidad-" + objetoDeseo.nombre));
+    
+    
 
-
+    // Suma de MB y GB
+    precioTotal += objetoDeseo.pesoMb;
+    totalCarrito.innerHTML = `${precioTotal} MB`;
 
     if (precioTotal > 1024) {
 
