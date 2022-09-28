@@ -26,7 +26,7 @@ body {
     /* outline: auto; */
     background-color: whitesmoke;
     /* justify-content: center; */
-    background-image: url(/img/generalDivPizarraPNG.png );
+    background-image: url(../img/generalDivPizarraPNG.png );
     background-position: center;
     background-size: 96em 50em;
 }
@@ -148,7 +148,7 @@ div {
 
 
     background-color: white;
-    background-image: url(/img/receiptShop.png);
+    background-image: url(../img/receiptShop.png);
     background-position: center;
     background-size: 17em 35em;
 
