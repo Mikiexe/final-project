@@ -4,7 +4,7 @@
   <a href="https://github.com/github_username/repo_name">
     <img src="./img/shopping-cart-20370-32x32.ico" alt="Logo" width="30" height="30">
   </a>
-#readme-top
+
 <h3 align="center">Carrito JS Vanilla</h3>
 
   <p align="center">
@@ -51,8 +51,22 @@ Para probarla, simplemente arrastraremos la imagen de la aplicación que querrem
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Contacto
+
+Para cualquier otra pregunta que no se ha podido aclarar en las previas secciones, sientete libre de contactar conmigo a través de las siguientes plataformas:
+
+- Email: ma.holiszowski@gmail.com
+- [Github](https://github.com/Mikiexe)
+
+
+
+
+
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [Javascript]: https://img.shields.io/badge/Javascript-FF2D20?style=for-the-badge&logo=javascript&logoColor=white
 [html]: https://img.shields.io/badge/HTML-blue?style=for-the-badge
 [css]: https://img.shields.io/badge/CSS-orange?style=for-the-badge
+
+[github]: https://github.com/Mikiexe
