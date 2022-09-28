@@ -41,6 +41,8 @@ const addItemElement = (nameTxt, posicion) => {
 
     if ((document.getElementById("id-cantidad-" + nameTxt) === null)) {
         console.log(console.log("Si es null aparecera esto y estaré creando este componente"));
+        objetos[posicion].cantidad++;
+
     } else {
         console.log(document.getElementById("id-cantidad-" + nameTxt).innerHTML);
         console.log("esta es la cantidad de " + nameTxt + ": " + objetos[posicion].cantidad);
@@ -84,26 +86,8 @@ const addItemElement = (nameTxt, posicion) => {
 
     }
 
-
-    if (document.getElementById("id-cantidad-" + nameTxt).innerHTML === null) {
-        objetos[posicion].cantidad++;
-    }
 }
 
-
-const refreshQty = (name, posicionArray) => {
-
-    // console.log("Posicion del objeto en el array: " + posicionArray)
-    // // console.log("Cantidad prefuncion: " + cantidad);
-
-    // let campoInsert = document.getElementById(name);
-    // // console.log(document.getElementById(name));
-
-    // let nuevoCantidad = objetos[posicionArray].cantidad++;
-
-    // console.log("cantidad postfunction: " + nuevoCantidad);
-
-}
 
 
 // Declaramos un array con objetos que utilizaremos en nuestra "tienda"
@@ -113,7 +97,6 @@ let objetos = [
         pesoMb: 40.5,
         nombre: "Instagram",
         position: 0,
-        added: false,
         cantidad: 0
     },
     {
@@ -132,7 +115,7 @@ let objetos = [
     },
     {
         id: "item4",
-        pesoMb: 405,
+        pesoMb: 182.5,
         nombre: "LoveApp",
         position: 3,
         cantidad: 0
@@ -140,84 +123,84 @@ let objetos = [
     },
     {
         id: "item5",
-        pesoMb: 405,
+        pesoMb: 332,
         nombre: "iCloud",
         position: 4,
         cantidad: 0
     },
     {
         id: "item6",
-        pesoMb: 405,
+        pesoMb: 250,
         nombre: "TikTok",
         position: 5,
         cantidad: 0
     },
     {
         id: "item7",
-        pesoMb: 405,
+        pesoMb: 167,
         nombre: "LinkedIn",
         position: 6,
         cantidad: 0
     },
     {
         id: "item8",
-        pesoMb: 405,
+        pesoMb: 50,
         nombre: "Messenger",
         position: 7,
         cantidad: 0
     },
     {
         id: "item9",
-        pesoMb: 405,
+        pesoMb: 391,
         nombre: "Twitter",
         position: 8,
         cantidad: 0
     },
     {
         id: "item10",
-        pesoMb: 405,
+        pesoMb: 60,
         nombre: "Telegram",
         position: 9,
         cantidad: 0
     },
     {
         id: "item11",
-        pesoMb: 405,
+        pesoMb: 104.5,
         nombre: "Pinterest",
         position: 10,
         cantidad: 0
     },
     {
         id: "item12",
-        pesoMb: 405,
+        pesoMb: 32,
         nombre: "Skype",
         position: 11,
         cantidad: 0
     },
     {
         id: "item13",
-        pesoMb: 405,
+        pesoMb: 87,
         nombre: "VikApp",
         position: 12,
         cantidad: 0
     },
     {
         id: "item14",
-        pesoMb: 405,
+        pesoMb: 993,
         nombre: "VSCode",
         position: 13,
         cantidad: 0
     },
     {
         id: "item15",
-        pesoMb: 405,
+        pesoMb: 850,
         nombre: "Translate App",
         position: 14,
         cantidad: 0
     },
     {
         id: "item16",
-        pesoMb: 405,
+        pesoMb: 715,
         nombre: "YouTube",
         position: 15,
         cantidad: 0
@@ -259,23 +242,17 @@ const drop = (ev) => {
     addItemElement(objetoDeseo.nombre, objetoDeseo.position);
 
 
-    // carritoPush(objetoDeseo.nombre, objetoDeseo.position);
-
-    // console.log("soltando...", objetoDeseo.pesoMb);
-
-
     //Importante cambiar objetoDeseo.variable por el nombre que le asignamos dentro del objeto
 
     precioTotal += objetoDeseo.pesoMb;
     totalCarrito.innerHTML = `${precioTotal} MB`;
 
-    // cantidadTotal += objetos[objetos.position].cantidad;
-    // totalCantidadP.innerHTML = `${cantidadTotal}`; 
 
     if (document.getElementById("id-cantidad-" + objetoDeseo.nombre).innerHTML != 0) {
         objetos[objetoDeseo.position].cantidad++;
         console.log(objetos[objetoDeseo.cantidad]);
-    } else {
+    }
+    else {
         objetos[objetoDeseo.position].cantidad++;
 
     }
@@ -293,7 +270,9 @@ const drop = (ev) => {
 
 const vaciarCarrito = () => {
 
-    console.log(objetos[posicion].cantidad); 
+    for (let cuantos of objetos) {
+        cuantos.cantidad = 0;
+    }
 
     precioTotal = 0;
     totalCarrito.innerHTML = `${precioTotal} MB`;
