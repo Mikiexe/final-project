@@ -18,8 +18,8 @@ let totalCarrito = document.getElementById("totalCarrito");
 let precioTotal = 0;
 totalCarrito.innerHTML = `${precioTotal} MB`;
 
-let cantidadTotal = 0;
-let totalCantidadP = document.getElementById("id-cantidad");
+// let cantidadTotal = 0;
+// let totalCantidadP = document.getElementById("id-cantidad");
 
 
 
@@ -37,9 +37,18 @@ const addItemElement = (nameTxt, posicion) => {
     let textQty = document.createElement("p");
     let innerDiv2 = document.createElement("div");
 
-    if (objetos[posicion].cantidad == 0) {
 
-        objetos[posicion].cantidad++;
+
+    if ((document.getElementById("id-cantidad-" + nameTxt) === null)) {
+        console.log(console.log("Si es null aparecera esto y estaré creando este componente"));
+    } else {
+        console.log(document.getElementById("id-cantidad-" + nameTxt).innerHTML);
+        console.log("esta es la cantidad de " + nameTxt + ": " + objetos[posicion].cantidad);
+        document.getElementById("id-cantidad-" + nameTxt).innerHTML = objetos[posicion].cantidad;
+    }
+
+    if (document.getElementById("id-cantidad-" + nameTxt) === null) {
+
         // console.log("La cantidad de aplicacion es: " + objetos[posicion].cantidad);
 
         // Creamos un elemento nuevo div padre y le asignamos los estilos css predefinidos. 
@@ -66,31 +75,33 @@ const addItemElement = (nameTxt, posicion) => {
         newElement.appendChild(innerDiv2);
 
 
-        textQty.setAttribute("id", "id-cantidad");
+        textQty.setAttribute("id", ("id-cantidad-" + nameTxt));
+        console.log(textQty);
+
         textQty.append(objetos[posicion].cantidad);
         innerDiv2.appendChild(textQty);
+        console.log(objetos[posicion].cantidad);
 
     }
-    else if (objetos[posicion].cantidad !== 0) {
 
-        // let nuevaCantidad = objetos[posicion].cantidad++;
-        // console.log("sumamos valor a cantidad. Ahora vale:  " + objetos[posicion].cantidad)
 
-        // innerDiv2.innerHTML = "";
-        // textQty.innerHTML = "";
-        // console.log(innerDiv2.innerHTML);
+    if (document.getElementById("id-cantidad-" + nameTxt).innerHTML === null) {
+        objetos[posicion].cantidad++;
     }
 }
 
 
-const refreshQty = (posicionArray, cantidad) => {
+const refreshQty = (name, posicionArray) => {
 
-    console.log(posicionArray)
-    console.log("Cantidad prefuncion: " + cantidad);
+    // console.log("Posicion del objeto en el array: " + posicionArray)
+    // // console.log("Cantidad prefuncion: " + cantidad);
 
+    // let campoInsert = document.getElementById(name);
+    // // console.log(document.getElementById(name));
 
-    let nuevoCantidad = objetos[posicionArray].cantidad++;
-    console.log("cantidad postfunction: " + nuevoCantidad);
+    // let nuevoCantidad = objetos[posicionArray].cantidad++;
+
+    // console.log("cantidad postfunction: " + nuevoCantidad);
 
 }
 
@@ -254,16 +265,22 @@ const drop = (ev) => {
 
 
     //Importante cambiar objetoDeseo.variable por el nombre que le asignamos dentro del objeto
+
     precioTotal += objetoDeseo.pesoMb;
     totalCarrito.innerHTML = `${precioTotal} MB`;
 
     // cantidadTotal += objetos[objetos.position].cantidad;
     // totalCantidadP.innerHTML = `${cantidadTotal}`; 
 
-    // console.log(document.getElementById("id-cantidad"));
+    if (document.getElementById("id-cantidad-" + objetoDeseo.nombre).innerHTML != 0) {
+        objetos[objetoDeseo.position].cantidad++;
+        console.log(objetos[objetoDeseo.cantidad]);
+    } else {
+        objetos[objetoDeseo.position].cantidad++;
 
+    }
+    console.log(document.getElementById("id-cantidad-" + objetoDeseo.nombre));
 
-    refreshQty(objetoDeseo.position, objetoDeseo.cantidad);
 
 
     if (precioTotal > 1024) {
@@ -275,6 +292,8 @@ const drop = (ev) => {
 
 
 const vaciarCarrito = () => {
+
+    console.log(objetos[posicion].cantidad); 
 
     precioTotal = 0;
     totalCarrito.innerHTML = `${precioTotal} MB`;
