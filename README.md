@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 
 <div align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/Mikiexe/final-project/">
     <img src="./img/shopping-cart-20370-32x32.ico" alt="Logo" width="30" height="30">
   </a>
 
@@ -14,7 +14,7 @@
     <br />
     <a href="https://mikiexe.github.io/final-project/">Prueba la aplicación</a>
     ·
-    <a href="https://github.com/github_username/repo_name/issues">Reporta un Bug</a>
+    <a href="https://github.com/Mikiexe/final-project/issues/">Reporta un Bug</a>
   </p>
 </div>
 
