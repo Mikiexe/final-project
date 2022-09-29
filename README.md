@@ -12,7 +12,7 @@
     <br />
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">Prueba la aplicación</a>
+    <a href="https://mikiexe.github.io/final-project/">Prueba la aplicación</a>
     ·
     <a href="https://github.com/github_username/repo_name/issues">Reporta un Bug</a>
   </p>
