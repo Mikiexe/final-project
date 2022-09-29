@@ -78,3 +78,7 @@ Para cualquier otra pregunta que no se ha podido aclarar en las previas seccione
 [css]: https://img.shields.io/badge/CSS-orange?style=for-the-badge
 
 [github]: https://github.com/Mikiexe
+
+
+
+Maciej Holiszowski 2022 ©
