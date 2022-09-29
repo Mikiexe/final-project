@@ -147,7 +147,7 @@ div {
     height: 35em;
 
 
-    background-color: white;
+    /* background-color: white; */
     background-image: url(../img/receiptShop.png);
     background-position: center;
     background-size: 17em 35em;

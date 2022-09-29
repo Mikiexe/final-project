@@ -40,12 +40,12 @@ const addItemElement = (nameTxt, posicion) => {
 
 
     if ((document.getElementById("id-cantidad-" + nameTxt) === null)) {
-        console.log(console.log("Si es null aparecera esto y estaré creando este componente"));
+        // console.log(console.log("Si es null aparecera esto y estaré creando este componente"));
         objetos[posicion].cantidad++;
 
     } else {
-        console.log(document.getElementById("id-cantidad-" + nameTxt).innerHTML);
-        console.log("esta es la cantidad de " + nameTxt + ": " + objetos[posicion].cantidad);
+        // console.log(document.getElementById("id-cantidad-" + nameTxt).innerHTML);
+        // console.log("esta es la cantidad de " + nameTxt + ": " + objetos[posicion].cantidad);
         document.getElementById("id-cantidad-" + nameTxt).innerHTML = objetos[posicion].cantidad;
     }
 
@@ -78,11 +78,11 @@ const addItemElement = (nameTxt, posicion) => {
 
 
         textQty.setAttribute("id", ("id-cantidad-" + nameTxt));
-        console.log(textQty);
+        // console.log(textQty);
 
         textQty.append(objetos[posicion].cantidad);
         innerDiv2.appendChild(textQty);
-        console.log(objetos[posicion].cantidad);
+        // console.log(objetos[posicion].cantidad);
 
     }
 
@@ -248,13 +248,13 @@ const drop = (ev) => {
     
     if (document.getElementById("id-cantidad-" + objetoDeseo.nombre).innerHTML != 0) {
         objetos[objetoDeseo.position].cantidad++;
-        console.log(objetos[objetoDeseo.cantidad]);
+        // console.log(objetos[objetoDeseo.cantidad]);
     }
     else {
         objetos[objetoDeseo.position].cantidad++;
         
     }
-    console.log(document.getElementById("id-cantidad-" + objetoDeseo.nombre));
+    // console.log(document.getElementById("id-cantidad-" + objetoDeseo.nombre));
     
     
 

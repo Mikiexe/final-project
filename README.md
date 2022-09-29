@@ -49,7 +49,15 @@ La tienda se reparte en dos lados:
 Para probarla, simplemente arrastraremos la imagen de la aplicación que querremos añadir al carrito hacia el icono del carrito. 
 
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+## Planes de futuro
+
+Tengo en mente unos retoques para hacer en un futuro:
+
+- **Mostrar** mediante un destello el **valor** (peso) del **objeto** (app) que hemos soltado al carrito
+<br>
+- **Boton de vaciado individual** para cada objeto de la lista
+<br>
+- Permitir que un **usuario** pueda **añadir objetos** a la lista y establecerles un valor
 
 ## Contacto
 
