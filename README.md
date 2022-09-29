@@ -43,7 +43,7 @@ En cuanto a la temática, ideé una por cuenta propia que trata de una tienda de
 
 La tienda se reparte en dos lados:
 - **Izquierda**: se sitúan la tienda y la lista de los items, que podremos desplazar mediante un _scroll bar_. De ahi empezaremos a arrastrar la imagen de la app hacia el carrito.
-<br>
+<br\>
 - **Derecha**: se encuentra el "recibo", dentro del cual tendremos el carrito donde dejaremos caer los _items_, la lista de estos que hemos añadido al carrito con su respectiva cantidad, una cruz para vaciar el carrito, y el computo total del peso de todas las aplicaciones.
 
 Para probarla, simplemente arrastraremos la imagen de la aplicación que querremos añadir al carrito hacia el icono del carrito. 
