@@ -54,9 +54,9 @@ Para probarla, simplemente arrastraremos la imagen de la aplicación que querrem
 Tengo en mente unos retoques para hacer en un futuro:
 
 - **Mostrar** mediante un destello el **valor** (peso) del **objeto** (app) que hemos soltado al carrito
-<br>
+<br\>
 - **Boton de vaciado individual** para cada objeto de la lista
-<br>
+<br\>
 - Permitir que un **usuario** pueda **añadir objetos** a la lista y establecerles un valor
 
 ## Contacto
